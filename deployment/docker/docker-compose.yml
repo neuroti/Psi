@@ -1,0 +1,106 @@
+# Psi Project Docker Compose Configuration
+# Orchestrates PostgreSQL, MongoDB, Redis, and FastAPI backend
+
+version: '3.8'
+
+services:
+  # PostgreSQL Database (ACID transactions)
+  postgres:
+    image: postgres:15-alpine
+    container_name: psi_postgres
+    environment:
+      POSTGRES_USER: psi_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-psi_password}
+      POSTGRES_DB: psi_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ../../backend/scripts/init_postgres.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U psi_user -d psi_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # MongoDB (Flexible schema for preferences and time series)
+  mongodb:
+    image: mongo:7.0
+    container_name: psi_mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: psi_admin
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-psi_mongo_password}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis (Cache layer)
+  redis:
+    image: redis:7-alpine
+    container_name: psi_redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # FastAPI Backend
+  backend:
+    build:
+      context: ../../backend
+      dockerfile: ../deployment/docker/Dockerfile.backend
+    container_name: psi_backend
+    environment:
+      - SECRET_KEY=${SECRET_KEY:-your-secret-key-change-in-production}
+      - POSTGRES_SERVER=postgres
+      - POSTGRES_USER=psi_user
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-psi_password}
+      - POSTGRES_DB=psi_db
+      - MONGODB_URL=mongodb://psi_admin:${MONGO_PASSWORD:-psi_mongo_password}@mongodb:27017
+      - MONGODB_DB=psi
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - CLAUDE_API_KEY=${CLAUDE_API_KEY}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../backend/app:/app/app
+      - ../../data:/app/data
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # PGAdmin (Optional - for database management)
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: psi_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@psi.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    profiles:
+      - dev
+
+volumes:
+  postgres_data:
+  mongodb_data:
+  redis_data:

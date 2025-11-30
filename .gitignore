@@ -1,0 +1,167 @@
+# Psi Project .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Node.js / React Native
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.expo/
+.expo-shared/
+dist/
+web-build/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+
+# iOS
+ios/Pods/
+ios/build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+
+# Android
+android/app/build/
+android/.gradle/
+android/local.properties
+*.apk
+*.aab
+
+# ML Models (large files)
+*.pt
+*.onnx
+*.pb
+*.h5
+*.pth
+data/models/*.pt
+!data/models/README.md
+
+# Datasets (large files)
+data/datasets/food/train/
+data/datasets/food/val/
+data/datasets/food/test/
+data/datasets/ingredients/
+*.jpg
+*.jpeg
+*.png
+*.gif
+!docs/**/*.png
+!docs/**/*.jpg
+
+# Docker
+.docker/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Secrets
+secrets/
+*.pem
+*.crt
+*.csr
+credentials.json
+
+# Coverage reports
+coverage/
+*.cover
+.coverage.*
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Redis dump
+dump.rdb
+
+# PostgreSQL
+pgdata/
+
+# MongoDB
+mongodata/

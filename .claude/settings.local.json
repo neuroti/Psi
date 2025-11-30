@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m pip install:*)",
+      "Bash(for dir in core models services utils)",
+      "Bash(do if [ ! -f \"$dir/__init__.py\" ])",
+      "Bash(then touch \"$dir/__init__.py\")",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(python -m pytest:*)",
+      "Bash(tee:*)",
+      "Bash(../integration_tests.log)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
