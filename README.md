@@ -1,6 +1,6 @@
 # Psi (사이) - Emotion-Based Wellness Platform
 
-<div align="center">
+<!-- <div align="center">
 
 ![Psi Logo](docs/images/logo.png)
 
@@ -47,7 +47,7 @@ Psi analyzes your emotions in real-time through wearable device data (heart rate
 | Recommendations | Generic | Emotion-based & personalized |
 | Emotion Tracking | Self-reported | Real-time biometric data |
 | Scientific Basis | Calories only | Neuroscience + 62+ nutrients |
-| User Experience | Tedious logging | Snap, analyze, get insights |
+| User Experience | Tedious logging | Snap, analyze, get insights | -->
 
 ---
 
@@ -164,7 +164,7 @@ Upgrade to **Psi Premium** for advanced capabilities:
 
 ---
 
-## 🚀 Quick Start
+<!-- ## 🚀 Quick Start
 
 ### Option 1: Quick Start with Docker (Recommended)
 
@@ -339,11 +339,11 @@ curl http://localhost:8000/health
 # Open browser: http://localhost:8000/docs
 ```
 
-**Troubleshooting**: See [DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md#12-troubleshooting)
+**Troubleshooting**: See [DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md#12-troubleshooting) -->
 
----
+<!-- --- -->
 
-## 📚 Documentation
+<!-- ## 📚 Documentation
 
 We maintain comprehensive documentation for all aspects of the project:
 
@@ -394,7 +394,7 @@ We maintain comprehensive documentation for all aspects of the project:
 
 **Note**: Demo account is reset daily. All features are available except premium-only features.
 
----
+--- -->
 
 ## 🏗️ Architecture
 
@@ -891,7 +891,7 @@ Before releasing new versions, perform these manual tests:
 - [ ] App cold start < 3s
 - [ ] Memory usage < 200MB
 
----
+<!-- ---
 
 ## 🤝 Contributing
 
@@ -1269,9 +1269,9 @@ We plan to add offline food analysis in a future update.
 - Suggest features
 - Star the repo ⭐
 
-</details>
+</details> -->
 
----
+<!-- ---
 
 ## 📄 License
 
@@ -1343,9 +1343,9 @@ See [CONTRIBUTORS.md](CONTRIBUTORS.md) for the full list.
 
 - **Dr. Jane Smith** - Nutrition Science Advisor
 - **Dr. John Doe** - Psychology & Emotion Research
-- **Prof. Alice Johnson** - Machine Learning
+- **Prof. Alice Johnson** - Machine Learning -->
 
----
+<!-- ---
 
 ## 📞 Contact & Support
 
@@ -1381,7 +1381,7 @@ See [SECURITY.md](SECURITY.md) for our security policy and responsible disclosur
 - 💼 **LinkedIn**: [linkedin.com/company/psi-wellness](https://linkedin.com/company/psi-wellness)
 - 🎥 **YouTube**: [Psi Wellness](https://youtube.com/@PsiWellness)
 
----
+--- -->
 
 ## 🙏 Acknowledgments
 
@@ -1413,12 +1413,12 @@ Psi wouldn't be possible without these amazing open-source projects and resource
 - **[Postman](https://www.postman.com/)** - API testing
 - **[Figma](https://www.figma.com/)** - UI/UX design
 
-### Community
+<!-- ### Community
 
 - **Beta Testers** - 1,000+ users who provided invaluable feedback
 - **Contributors** - 50+ developers who improved the codebase
 - **Stack Overflow** - Countless solutions and inspiration
-- **Python & JavaScript Communities** - Knowledge sharing
+- **Python & JavaScript Communities** - Knowledge sharing -->
 
 ### Inspiration
 
@@ -1429,7 +1429,7 @@ Psi wouldn't be possible without these amazing open-source projects and resource
 
 ---
 
-## 📈 Star History
+<!-- ## 📈 Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=yourusername/psi&type=Date)](https://star-history.com/#yourusername/psi&Date)
 
@@ -1464,4 +1464,4 @@ If you use Psi in your research or project, please cite:
 
 © 2025 Psi (사이). All rights reserved.
 
-</div>
+</div> -->
